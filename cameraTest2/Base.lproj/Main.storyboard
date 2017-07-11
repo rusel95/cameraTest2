@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="cameraTest2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,61 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CdI-Gi-In1">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="CdI-Gi-In1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="XQb-e3-rJT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CdI-Gi-In1" secondAttribute="bottom" id="hDq-dw-hsu"/>
+                            <constraint firstItem="CdI-Gi-In1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sf9-Qj-Gti"/>
+                            <constraint firstAttribute="trailing" secondItem="CdI-Gi-In1" secondAttribute="trailing" id="uqY-nS-pgN"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="camPreview" destination="CdI-Gi-In1" id="bCq-am-bRv"/>
+                        <segue destination="rGS-82-v3l" kind="show" identifier="showVideo" id="czk-gp-4vB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-98.400000000000006" y="122.78860569715144"/>
+        </scene>
+        <!--Video Playback-->
+        <scene sceneID="bQ9-cH-FIB">
+            <objects>
+                <viewController id="rGS-82-v3l" customClass="VideoPlayback" customModule="cameraTest2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I7Z-76-pGf"/>
+                        <viewControllerLayoutGuide type="bottom" id="FKC-YK-t9A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VDS-xK-i2g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZwF-Nz-ETT">
+                                <rect key="frame" x="0.0" y="20" width="371" height="647"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZwF-Nz-ETT" firstAttribute="top" secondItem="I7Z-76-pGf" secondAttribute="bottom" id="JLG-dk-fBV"/>
+                            <constraint firstItem="FKC-YK-t9A" firstAttribute="top" secondItem="ZwF-Nz-ETT" secondAttribute="bottom" id="Mpc-8W-S8W"/>
+                            <constraint firstItem="ZwF-Nz-ETT" firstAttribute="leading" secondItem="VDS-xK-i2g" secondAttribute="leading" id="kUx-cb-QT9"/>
+                            <constraint firstAttribute="trailing" secondItem="ZwF-Nz-ETT" secondAttribute="trailing" constant="4" id="qMz-Ck-hqj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="videoView" destination="ZwF-Nz-ETT" id="YK1-VI-x3Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O0d-vJ-aYv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="649" y="123"/>
         </scene>
     </scenes>
 </document>
