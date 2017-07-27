@@ -104,8 +104,6 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate {
     
     //MARK:- Camera Session
     func startSession() {
-        
-        
         if !captureSession.isRunning {
             videoQueue().async {
                 self.captureSession.startRunning()
@@ -124,8 +122,6 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate {
     func videoQueue() -> DispatchQueue {
         return DispatchQueue.main
     }
-    
-    
     
     func currentVideoOrientation() -> AVCaptureVideoOrientation {
         var orientation: AVCaptureVideoOrientation
@@ -149,8 +145,6 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate {
         startRecording()
         
     }
-    
-    //EDIT 1: I FORGOT THIS AT FIRST
     
     func tempURL() -> URL? {
         let directory = NSTemporaryDirectory() as NSString
@@ -189,7 +183,6 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate {
                 
             }
             
-            //EDIT2: And I forgot this
             outputURL = tempURL()
             movieOutput.startRecording(toOutputFileURL: outputURL, recordingDelegate: self)
             
@@ -226,7 +219,6 @@ class ViewController: UIViewController, AVCaptureFileOutputRecordingDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showVideo" {
             let vc = segue.destination as! VideoPlayback
-        
             vc.videoURL = sender as! URL
         }
     }

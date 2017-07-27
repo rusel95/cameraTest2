@@ -23,7 +23,7 @@ class VideoPlayback: UIViewController {
         
         avPlayerLayer = AVPlayerLayer(player: avPlayer)
         avPlayerLayer.frame = view.bounds
-        avPlayerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        avPlayerLayer.videoGravity = AVLayerVideoGravityResizeAspect
         videoView.layer.insertSublayer(avPlayerLayer, at: 0)
         
         view.layoutIfNeeded()
